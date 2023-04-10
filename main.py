@@ -23,7 +23,10 @@ def update(now, end):
     time_remaining = end - now
     min_remaining = int(time_remaining // 60)
     sec_remaining = int(time_remaining % 60)
-    print("%d:%02d" % (min_remaining, sec_remaining)) # Utilisation de % pour formater la chaîne de caractères avec des zéros devant les secondes si nécessaire
+    print("%d:%02d" % (min_remaining, sec_remaining),end='',flush=True) # Utilisation de % pour formater la chaîne de caractères avec des zéros devant les secondes si nécessaire
+    time.sleep(1)
+    print('\r    \r', end='', flush=True)
+
 
 # hide pygame message 
 jump()
@@ -51,11 +54,10 @@ while True:
             end = now + 60*focus
             pygame.mixer.music.load("rsc/xpSound.mp3")
             pygame.mixer.music.play()
-
+            jump()
             while (end - now >= 0):
                 now = time.time()
                 update(now,end)
-                time.sleep(1)
             pygame.mixer.music.load("rsc/tterm.mp3")
             pygame.mixer.music.play()
         case 2: 
@@ -65,10 +67,10 @@ while True:
             pygame.mixer.music.play()
             now = time.time()
             end = now + 60*short
+            jump()
             while (end - now >= 0):
                 now = time.time()
                 update(now,end)
-                time.sleep(1) 
             pygame.mixer.music.load("rsc/encoreT.mp3")
             pygame.mixer.music.play()
         case 3: 
@@ -79,10 +81,10 @@ while True:
             pygame.mixer.music.play()
             now = time.time()
             end = now + 60*long 
+            jump()
             while (end - now >= 0):
                 now = time.time()
                 update(now,end)
-                time.sleep(1) 
             pygame.mixer.music.load("rsc/encoreT.mp3")
             pygame.mixer.music.play()
 
