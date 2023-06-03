@@ -1,14 +1,14 @@
-import time 
+import time
 import pygame
 
 
 ######
 # vars
-###### 
+######
 
 focus = 25
 short = 5
-long  = 12
+long = 20
 timer = 0
 sesh = []
 
@@ -87,4 +87,6 @@ while True:
                 update(now,end)
             pygame.mixer.music.load("rsc/encoreT.mp3")
             pygame.mixer.music.play()
-
+        case _:
+            print("bad input")
+            
